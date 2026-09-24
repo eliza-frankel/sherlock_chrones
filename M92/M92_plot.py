@@ -37,7 +37,7 @@ if __name__ == '__main__':
 
     amlt = r"$\alpha_{MLT}$"
 
-    cluster_path = '/Users/elizafrankel/Desktop/queries/FINAL_M92.csv'
+    cluster_path = '/Users/elizafrankel/Desktop/queries/m92_gaia_data.csv'
 
 
 
@@ -52,7 +52,7 @@ if __name__ == '__main__':
     # alpha_mlt = ['1.40', '1.50', '1.60', '1.70', '1.80', '1.90', '2.00', '2.10', '2.20','2.30', '2.40', '2.50']
     alpha_mlt_float = [1.00, 1.10, 1.20, 1.30, 1.40, 1.50, 1.60, 1.70, 1.80, 1.90, 2.00, 2.10, 2.20, 2.30, 2.40, 2.50]
 
-    path_to_cluster_data = '/Users/elizafrankel/Desktop/queries/FINAL_M92.csv'
+    path_to_cluster_data = '/Users/elizafrankel/Desktop/queries/m92_gaia_data.csv'
 
 
 
