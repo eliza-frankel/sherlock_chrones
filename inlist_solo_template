@@ -1,0 +1,94 @@
+
+&star_job
+
+      ! This is reading in my condensed history_columns list with only 10 columns rather than default ~40
+      history_columns_file = 'history_columns_condensed.list'
+
+      show_log_description_at_start = .false.
+
+      create_pre_main_sequence_model = .true.
+
+      save_model_when_terminate = .true.
+      save_model_filename = 'models/m<<initial_mass>>_z<<initial_z>>_a<<initial_alpha>>.mod'
+
+/ ! end of star_job namelist
+
+&eos
+
+
+/ ! end of eos namelist
+
+&kap
+      Zbase = <<initial_z>>
+
+      kap_file_prefix = 'gs98'
+      use_Type2_opacities = .true.
+
+/ ! end of kap namelist
+
+
+&controls
+
+      star_history_name = 'history_m<<initial_mass>>_z<<initial_z>>_a<<initial_alpha>>.data'
+
+      ! EAF stopping parameters for these!
+      he_core_mass_limit = 0.47
+      log_center_temp_upper_limit = 8  ! 10^8 . 100 MK
+
+      stop_at_phase_He_Burn = .true.
+      power_he_burn_upper_limit = 10d0
+      max_age = 20d9
+      log_g_lower_limit = 0.5
+
+
+
+      atm_option = 'table'
+      atm_table = 'photosphere'
+
+
+      MLT_option = 'Henyey'
+
+      ! It is a conservative equation for the local specific total energy introduced in
+      ! |MESA V|, Section 3.  See in particular Eq. (8) and surrounding discussion.
+      ! energy_eqn_option = 'eps_grav'
+      energy_eqn_option = 'dedt'
+      ! level 2 of gold tolerances for solver solver - tighter than level 1
+      use_gold2_tolerances = .true.
+
+
+      initial_mass = <<initial_mass>>
+      initial_z = <<initial_z>>
+      mixing_length_alpha = <<initial_alpha>>
+      initial_y = <<initial_y>>
+      
+      ! This is the target value for relative variation in the structure from one model to the next.
+      ! The default timestep adjustment is to increase or reduce the timestep depending on whether
+      ! the actual variation was smaller or greater than this value.
+      varcontrol_target = 1d-3
+      ! Limit for magnitude of change in lgL_He.
+      delta_lgL_He_limit = 0.01d0
+     
+      ! ! Wind schemes, both hot and cool
+      cool_wind_RGB_scheme = 'Reimers'
+      RGB_to_AGB_wind_switch = 1d-4
+      ! ! Reimers mass loss for red giants.
+      Reimers_scaling_factor = 0.1d0  
+    
+
+
+      photo_interval = 50
+      profile_interval = 100
+      history_interval = 1  ! EAF - I changed this from 10
+      terminal_interval = 10
+      write_header_frequency = 10
+
+
+/ ! end of controls namelist
+
+
+
+&pgstar
+
+   
+/ ! end of pgstar namelist
+
