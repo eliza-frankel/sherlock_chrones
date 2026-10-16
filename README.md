@@ -9,6 +9,17 @@ This repository contains all the supplemental information from Frankel et al. 20
     * contains csv files with each isochrone point, found using building_isochrones.py
   * `M92_plot.py` - plots M92 cluster data with isochrones overlaid
   * `magspace_metrics_M92.py` - does the subgiant branch length and RGB curvature metrics for M92
+
+* MESA
+  * `M92_batch.sh`
+    * Script for launching grids of stellar tracks with varying alpha_MLTs for M92
+  * `PAPER_NGC6791_batch.sh`
+    * Script for launching grids of stellar tracks with varying alpha_MLTs for M92
+  * `PAPER_mass_evo.sh`
+    * Called in X_batch.sh, this is the file that replaces metallicity, helium, stellar mass, and alpha_MLT in `inlist_solo_template` and then runs the modified inlist
+  * `inlist_solo_template`
+    * This is the inlist used for this project. Everything remains the same between M92 and NGC 6791, except for the parameters labeled <<PARAM>>; these
+      include the cluster metallicity, <<initial_z>>, initial helium, <<initial_y>>, stellar model mass, <<initial_mass>>, and mixing length parameter, <<initial_alpha>>.
  
 * NGC 6791
   * `best_fit_metrics/`
